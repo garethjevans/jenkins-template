@@ -69,8 +69,8 @@ controller:
             globalConfigName: "oscar"
           pollSCM:
             pollingThreadCount: 10
-          timestamper:
-            allPipelines: true
+              #          timestamper:
+              #            allPipelines: true
       location: |
         unclassified:
           location:
@@ -110,9 +110,12 @@ controller:
     - workflow-aggregator:2.6
     - git:4.7.1
     - configuration-as-code:1.51
+    - ace-editor:1.1  
     - ansicolor:1.0.0
+    - credentials-binding:1.23  
+    - github-branch-source:2.10.4 
+    - junit:1.29  
     - timestamper:1.13
-    - github-branch-source:2.10.4  
   sidecars:
     configAutoReload:
       env:
