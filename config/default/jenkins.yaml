@@ -124,7 +124,7 @@ controller:
     - github:1.33.1
     - github-api:1.123
     - github-branch-source:2.10.4
-    - jackson2-api:2.12.1
+    - jackson2-api:2.12.2
     - jjwt-api:0.11.2-9.c8b45b8bb173
     - junit:1.49
     - kubernetes:1.29.6
