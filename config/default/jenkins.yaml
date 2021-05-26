@@ -114,6 +114,7 @@ controller:
     - ansicolor:1.0.0
     - credentials-binding:1.23
     - github-branch-source:2.10.4
+    - pipeline-model-api:1.7.2  
     - junit:1.29
     - timestamper:1.13
     - workflow-job:2.39
