@@ -105,8 +105,12 @@ controller:
                         resourceRequestMemory: "512Mi"
                         args: 1d
                         alwaysPullImage: true
-  overwritePlugins: true
-  installPlugins: false
+  installPlugins:
+    - kubernetes:1.29.4
+    - workflow-aggregator:2.6
+    - git:4.7.1
+    - configuration-as-code:1.51
+    - ansicolor:1.0.0  
   sidecars:
     configAutoReload:
       env:
