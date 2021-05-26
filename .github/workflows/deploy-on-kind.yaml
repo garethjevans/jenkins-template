@@ -26,7 +26,7 @@ jobs:
         uses: mamezou-tech/setup-helmfile@v0.7.0
         with:
           helmfile-version: "v0.138.3"
-          helm-version: "v3.5.2"
+          helm-version: "v3.5.4"
 
       - name: Create Kind Cluster
         uses: helm/kind-action@v1.1.0
