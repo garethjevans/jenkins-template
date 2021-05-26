@@ -1,0 +1,140 @@
+rbac:
+  readSecrets: true
+persistence:
+  enabled: true
+  size: 100Gi
+controller:
+  imagePullPolicy: IfNotPresent
+  JCasC:
+    enabled: true
+    defaultConfig: false
+    configScripts:
+      no-executors: |
+        jenkins:
+          numExecutors: 2
+      matrix-settings: |
+        jenkins:
+          authorizationStrategy:
+            globalMatrix:
+              permissions:
+                - "Overall/Administer:admin"
+                - "Credentials/Create:admin"
+                - "Overall/SystemRead:authenticated"
+                - "Overall/Read:authenticated"
+                - "Agent/ExtendedRead:authenticated"
+                - "Job/ExtendedRead:authenticated"
+                - "Overall/Read:anonymous"
+                - "Job/Read:anonymous"
+                - "View/Read:anonymous"
+      security-realm: |
+        jenkins:
+          securityRealm:
+            local:
+              allowsSignup: false
+              users:
+                - id: "admin"
+                  password: "p4ssw0rd"
+      misc-jenkins: |
+        jenkins:
+          remotingSecurity:
+            enabled: true
+          slaveAgentPort: 50000
+      system-message: |
+        jenkins:
+          systemMessage: |
+            <div>
+              <h1>About Jenkins...</h1>
+            </div>
+      markup-formatter: |
+        jenkins:
+          markupFormatter:
+            rawHtml:
+              disableSyntaxHighlighting: false
+      crumb-issuer: |
+        jenkins:
+          crumbIssuer:
+            standard:
+              excludeClientIPFromCrumb: true
+      misc-security: |
+        security:
+          apiToken:
+            creationOfLegacyTokenEnabled: false
+            tokenGenerationOnCreationEnabled: false
+            usageStatisticsEnabled: true
+      misc-unclassified: |
+        unclassified:
+          gitSCM:
+            createAccountBasedOnEmail: false
+            globalConfigEmail: "oscar@example.com"
+            globalConfigName: "oscar"
+          pollSCM:
+            pollingThreadCount: 10
+              #          timestamper:
+              #            allPipelines: true
+      location: |
+        unclassified:
+          location:
+            adminAddress: "nobody@jenkins.io"
+            url: "http://localhost"
+      agent-settings: |
+        jenkins:
+          clouds:
+            - kubernetes:
+                containerCapStr: "100"
+                jenkinsUrl: "http://jenkins:8080"
+                maxRequestsPerHostStr: "300"
+                webSocket: true
+                name: "kubernetes"
+                namespace: "jenkins"
+                podRetention: "Never"
+                serverUrl: "https://kubernetes.default"
+                podLabels:
+                  # Required to be jenkins/<helm-release>-jenkins-slave as definede here
+                  # https://github.com/helm/charts/blob/ef0d749132ecfa61b2ea47ccacafeaf5cf1d3d77/stable/jenkins/templates/jenkins-master-networkpolicy.yaml#L27
+                  - key: "jenkins/jenkins-agent"
+                    value: "true"
+                templates:
+                  - name: jnlp
+                    nodeSelector: "kubernetes.io/os=linux"
+                    containers:
+                      - name: jnlp
+                        image: "jenkins/inbound-agent:latest-jdk11"
+                        resourceLimitCpu: "500m"
+                        resourceLimitMemory: "512Mi"
+                        resourceRequestCpu: "500m"
+                        resourceRequestMemory: "512Mi"
+                        args: 1d
+                        alwaysPullImage: true
+  installPlugins:
+    - kubernetes:1.29.4
+    - workflow-aggregator:2.6
+    - git:4.7.1
+    - configuration-as-code:1.51
+    - ace-editor:1.1
+    - ansicolor:1.0.0
+    - credentials-binding:1.23
+    - github-branch-source:2.10.4
+    - pipeline-model-api:1.7.2  
+    - junit:1.29
+    - timestamper:1.13
+    - workflow-job:2.39
+  sidecars:
+    configAutoReload:
+      env:
+        # https://github.com/kiwigrid/k8s-sidecar#configuration-environment-variables
+        - name: METHOD
+          # Polling mode (instead of watching kube API)
+          value: "SLEEP"
+        # https://github.com/kiwigrid/k8s-sidecar#configuration-environment-variables
+        - name: SLEEP_TIME
+          # Time in seconds between two polls
+          value: "60"
+  ingress:
+    enabled: true
+  probes:
+    startupProbe:
+      initialDelaySeconds: 240
+    livenessProbe:
+      initialDelaySeconds: 240
+    readinessProbe:
+      initialDelaySeconds: 240
