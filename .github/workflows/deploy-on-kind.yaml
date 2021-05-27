@@ -42,4 +42,7 @@ jobs:
         run: |
           kubectl get all --namespace jenkins
           kubectl describe pod jenkins-0 --namespace jenkins
+          echo "## Init Container"
+          kubectl logs jenkins-0 -c init --namespace jenkins
+          echo "## Jenkins Container"
           kubectl logs jenkins-0 -c jenkins --namespace jenkins
