@@ -94,6 +94,7 @@ controller:
                         resourceRequestMemory: "512Mi"
                         args: 1d
                         alwaysPullImage: true
+  overwritePlugins: true
   installPlugins:
     - ace-editor:1.1
     - ansicolor:1.0.0
