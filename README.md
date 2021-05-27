@@ -4,8 +4,8 @@ This is an example project to get Jenkins running in kindi/docker desktop with j
 
 ## Requirements
 
-* helm 
-* helmfile
+* helm (v3.5.4) 
+* helmfile (v0.139.3)
 * kind / docker desktop with kubernetes enabled
 
 ## Installation Instructions
