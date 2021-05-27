@@ -30,3 +30,11 @@ To deploy changes.
 * Ran `uc --jenkins-version 2.277.4 -w -d` to add transient dependencies 
 * Ran `uc --jenkins-version 2.277.4 -w` to update all versions
 * Add the contents of the file as the `jenkins.controller.installPlugins` block
+
+## Using the Jenkins CLI
+
+To use the Jenkins CLI against this controller, you'll firstly need to download the required jar file.
+
+```sh
+curl -o jenkins-cli.jar http://localhost/jnlpJars/jenkins-cli.jar
+```
