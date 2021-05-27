@@ -138,6 +138,7 @@ controller:
     - plugin-util-api:2.2.0
     - scm-api:2.6.4
     - script-security:1.77
+    - slack:2.48  
     - snakeyaml-api:1.27.0
     - ssh-credentials:1.18.1
     - structs:1.23
