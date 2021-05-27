@@ -111,6 +111,7 @@ controller:
     - docker-plugin:1.2.2
     - docker-workflow:1.26  
     - echarts-api:5.1.0-2
+    - envinject:2.4.0
     - git:4.7.1
     - git-client:3.7.1
     - github:1.33.1
@@ -140,6 +141,7 @@ controller:
     - script-security:1.77
     - slack:2.48  
     - snakeyaml-api:1.27.0
+    - ssh-agent:1.22
     - ssh-credentials:1.18.1
     - structs:1.23
     - timestamper:1.13
