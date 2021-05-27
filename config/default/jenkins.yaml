@@ -58,6 +58,8 @@ controller:
             globalConfigName: "oscar"
           pollSCM:
             pollingThreadCount: 10
+          ansiColorBuildWrapper:
+            globalColorMapName: "xterm"
               #          timestamper:
               #            allPipelines: true
       location: |
