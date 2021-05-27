@@ -108,8 +108,6 @@ controller:
     - credentials-binding:1.24
     - display-url-api:2.3.5
     - durable-task:1.36
-    - docker-plugin:1.2.2
-    - docker-workflow:1.26  
     - echarts-api:5.1.0-2
     - envinject:2.4.0
     - git:4.7.1
