@@ -13,7 +13,7 @@ test:
 		helmfile test
 		kubectl get pods | grep Completed | awk '{print $$1}' | xargs kubectl delete pod
 
-delete:
+destroy:
 		helmfile destroy
 
 lint:
