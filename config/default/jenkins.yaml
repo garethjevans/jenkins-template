@@ -138,6 +138,7 @@ controller:
     - plugin-util-api:2.2.0
     - scm-api:2.6.4
     - script-security:1.77
+    - slack:2.48  
     - snakeyaml-api:1.27.0
     - ssh-credentials:1.18.1
     - structs:1.23
@@ -154,6 +155,7 @@ controller:
     - workflow-scm-step:2.12
     - workflow-step-api:2.23
     - workflow-support:3.8
+    - ws-cleanup:0.39  
   sidecars:
     configAutoReload:
       env:
