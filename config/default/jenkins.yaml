@@ -167,6 +167,8 @@ controller:
           value: "60"
   ingress:
     enabled: true
+    annotations:  
+      nginx.ingress.kubernetes.io/proxy-request-buffering: "off"  
   probes:
     startupProbe:
       initialDelaySeconds: 240
