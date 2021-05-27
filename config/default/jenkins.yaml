@@ -98,6 +98,7 @@ controller:
     - ace-editor:1.1
     - ansicolor:1.0.0
     - authentication-tokens:1.4
+    - authorize-project:1.4.0  
     - bootstrap4-api:4.6.0-3
     - caffeine-api:2.9.1-23.v51c4e2c879c8
     - checks-api:1.7.0
@@ -107,13 +108,15 @@ controller:
     - credentials-binding:1.24
     - display-url-api:2.3.5
     - durable-task:1.36
+    - docker-plugin:1.2.2
+    - docker-workflow:1.26  
     - echarts-api:5.1.0-2
     - git:4.7.1
     - git-client:3.7.1
     - github:1.33.1
     - github-api:1.123
     - github-branch-source:2.10.4
-    - jackson2-api:2.12.2
+    - jackson2-api:2.12.3
     - jjwt-api:0.11.2-9.c8b45b8bb173
     - junit:1.49
     - kubernetes:1.29.6
@@ -123,7 +126,8 @@ controller:
     - mailer:1.34
     - matrix-auth:2.6.7
     - metrics:4.0.2.7
-    - pipeline-build-step:2.7
+    - pipeline-build-step:2.13
+    - pipeline-graph-analysis:1.10  
     - pipeline-input-step:2.12
     - pipeline-milestone-step:1.3.2
     - pipeline-model-api:1.8.4
