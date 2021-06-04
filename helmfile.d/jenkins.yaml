@@ -8,7 +8,7 @@ helmDefaults:
 releases:
   - name: jenkins
     chart: jenkins/jenkins
-    version: 3.3.20
+    version: 3.3.21
     namespace: jenkins
     values:
       - "../config/default/jenkins.yaml"
